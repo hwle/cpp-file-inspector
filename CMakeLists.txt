@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(FileInspector LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(signatures src/signatures.cpp)
+target_include_directories(signatures PUBLIC include)
+add_executable(file-inspector src/main.cpp)
+target_link_libraries(file-inspector PRIVATE signatures)
+add_executable(test-signatures tests/test_signatures.cpp)
+target_link_libraries(test-signatures PRIVATE signatures)
+enable_testing()
+add_test(NAME signature-tests COMMAND test-signatures)

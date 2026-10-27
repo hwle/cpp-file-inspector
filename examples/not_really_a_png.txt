@@ -1,0 +1,3 @@
+%PDF-1.7
+This is demonstration content, not a complete PDF file.
+This file has a PDF header despite a .txt extension.
